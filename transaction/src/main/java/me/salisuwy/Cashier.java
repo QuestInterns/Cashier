@@ -92,15 +92,17 @@ public class Cashier {
 
 	public Cashier() {  }
 
-    public Cashier(String title, String content) {
-        this.setTransactionType(title);
-        //this.setItemId(content);
-    }
-
-    public Cashier(int id, String title, String content) {
-        this.setTransactionId(id);
-        this.setTransactionType(title);
-        //this.setItemId(content);
+    public Cashier(String patientId, String transactionRef, String transactionType, String biller, String transactionDate, String lastName, String firstName, String middleName, String fullName)
+    {
+    	this.setPatientId(patientId);
+        this.setTransactionRef(transactionRef);
+        this.setTransactionType(transactionType);
+        this.setBiller(biller);
+        this.setTransactionDate(transactionDate);
+        this.setLastName(lastName);
+        this.setFirstName(firstName);
+        this.setMiddleName(middleName);
+        this.setFullname(fullName);
     }
 
     public int getTransactionId() {

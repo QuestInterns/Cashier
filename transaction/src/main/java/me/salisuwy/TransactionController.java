@@ -1,43 +1,43 @@
 package me.salisuwy;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-public class CashierController {
+public class TransactionController {
 
     @Autowired
-    CashierRepository cashierRespository;
-
-
-    @GetMapping("/TransactionList")
-    public List<Cashier> findTransactionList()
-    {
-    	return cashierRespository.findTransactionList();
-    }
+    TransactionRepository transactionRepository;
     
-    @GetMapping("/HMOList")
-    public List<Cashier> findHMOList()
-    {
-    	return cashierRespository.findHMOList();
+    @PostMapping("/TransactionList")
+    public Transaction create(@RequestBody Map<String, String> body){
+    	try
+    	{
+	    	int patientId = Integer.parseInt(body.get("PatientID"));
+	    	String transactionRef = body.get("TransactionRef");
+	    	String transactionType = body.get("TransactionType");
+	    	String biller = body.get("biller");
+	    	String transactionDate = body.get("TransactionDate");
+	    	int userId = Integer.parseInt(body.get("userID"));
+	    	String totalPrice = body.get("TotalPrice");
+	    	double paidIn = Double.parseDouble(body.get("PaidIn"));
+	    	double paidOut = Double.parseDouble(body.get("PaidOut"));
+	    	double grandTotal = Double.parseDouble(body.get("GrandTotal"));
+	    	int status = Integer.parseInt(body.get("status"));
+	    	String salesType = body.get("SalesType");
+	    	String loe = body.get("LOE");
+	    	String an = body.get("AN");
+	    	String ac = body.get("AC");
+	    	String notes = body.get("Notes");
+	    	
+	    	return transactionRepository.save(new Transaction(patientId, transactionRef, transactionType, biller, transactionDate, userId, totalPrice, paidIn, paidOut, grandTotal, status, salesType, loe, an, ac, notes));
+    	}
+    	catch(Exception ex) {return null;}
     }
-    
-//    @PostMapping("/TransactionList")
-//    public Cashier create(@RequestBody Map<String, String> body){
-//    	String patientId = body.get("PatientID");
-//    	String transactionRef = body.get("TransactionRef");
-//    	String transactionType = body.get("TransactionType");
-//    	String biller = body.get("biller");
-//    	String transactionDate = body.get("TransactionDate");
-//    	String lastName = body.get("LastName");
-//    	String firstName = body.get("FirstName");
-//    	String middleName = body.get("MiddleName");
-//    	String fullName = lastName + ", " + firstName + " " + middleName;
-//    	return cashierRespository.save(new Cashier(patientId, transactionRef, transactionType, biller, transactionDate, lastName, firstName, middleName, fullName));
-//    }
     
 //    @Autowired
 //    ItemsRepository itemsRespository;
