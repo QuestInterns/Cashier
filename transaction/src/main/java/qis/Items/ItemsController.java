@@ -1,4 +1,4 @@
-package me.salisuwy;
+package qis.Items;
 
 import java.util.List;
 
@@ -34,5 +34,16 @@ public class ItemsController {
     public List<Items> findItemById(@PathVariable String id){
     	int pID = Integer.parseInt(id);
     	return itemsRepository.findItemById(pID);
+    }
+    
+    @GetMapping("/Items/{type}")
+    public List<Items> findItemByType(@PathVariable String type){
+    	return itemsRepository.findItemByType(type);
+    }
+    
+    @GetMapping("/NonAccountItems")
+    public List<Items> findAllNonAccountItems()
+    {
+    	return itemsRepository.findAllNonAccountItems();
     }
 }

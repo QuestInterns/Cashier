@@ -1,4 +1,4 @@
-package me.salisuwy;
+package qis.Cashier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

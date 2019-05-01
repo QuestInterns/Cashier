@@ -1,4 +1,4 @@
-package me.salisuwy;
+package qis.Items;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package me.salisuwy;
+package qis.Transaction;
 
 import javax.persistence.*;
 
