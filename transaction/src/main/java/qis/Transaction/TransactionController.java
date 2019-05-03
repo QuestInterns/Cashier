@@ -1,10 +1,8 @@
 package qis.Transaction;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController

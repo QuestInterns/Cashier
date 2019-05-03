@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: SpringRest
 Implementation-Version: 1.0-SNAPSHOT
-Built-By: Windows 10
+Built-By: QuestCreatives
 Implementation-Vendor-Id: me.salisuwy
 Build-Jdk: 1.8.0_201
 Implementation-URL: http://projects.spring.io/spring-boot/SpringRest/

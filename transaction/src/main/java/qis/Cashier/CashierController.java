@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class CashierController {
@@ -12,7 +11,7 @@ public class CashierController {
     @Autowired
     CashierRepository cashierRespository;
 
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/TransactionList")
     public List<Cashier> findTransactionList()
     {
